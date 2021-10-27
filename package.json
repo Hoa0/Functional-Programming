@@ -1,0 +1,19 @@
+{
+  "name": "functional-programming",
+  "version": "1.0.0",
+  "description": "school project - infromation design: tech track",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hoa0/Functional-Programming.git"
+  },
+  "author": "Thuan-Hoa Le",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hoa0/Functional-Programming/issues"
+  },
+  "homepage": "https://github.com/Hoa0/Functional-Programming#readme"
+}
