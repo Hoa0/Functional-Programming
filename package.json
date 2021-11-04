@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "school project - infromation design: tech track",
   "main": "server.js",
+  "type":"module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Hoa0/Functional-Programming/issues"
   },
-  "homepage": "https://github.com/Hoa0/Functional-Programming#readme"
+  "homepage": "https://github.com/Hoa0/Functional-Programming#readme",
+  "dependencies": {
+    "node-fetch": "^3.0.0"
+  }
 }
