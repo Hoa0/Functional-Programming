@@ -13,5 +13,4 @@ Inhoud
 Concept
 Voor het vak FP heb ik de opdracht gekregen om een datasets op te schonen. Hiervoor is het de bedoeling om gerbuik te maken van de FP princpes. Waarmee je functies gaat toepassen die ervoor zorgen dat je in een datasets kan filteren en de gewenste resultaat weergeeft.
 
-Data ophalen
-Uit de datasets wil ik weten wie als huisdier voor honden heeft gekozen en wat hun favoriete windrichting zijn.
+
