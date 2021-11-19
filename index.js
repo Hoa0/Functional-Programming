@@ -1,11 +1,36 @@
-import fetch from "node-fetch";
-globalThis.fetch = fetch;
+// get the data
+const data = require("./dataset-oefen.json");
 
-/*const DATASETS = require('./tech-track-dataset.json')
-console.log(DATASETS)*/
+//function for promise for looping, change data
+function procesData(){
+	return new Promise ((resolve, reject)=>{ 
+		let dataPromise = data;
+		resolve(dataPromise);
+	})
+}
 
-fetch("../tech-track-dataset.json")
-.then(res => res.json())
-.then(data => console.log(data))
+//cleaning data
+function cleaningLetters(string){ 
+	if (typeof string === "string"){ 
+		return string.toLowerCase() 
+	}
+	else{
+		return string
+	}
+}
+console.log(cleaningLetters())
 
-  
+//get value
+function getData(key, value){
+return data[key][value]
+}
+console.log(getData(0,"Wat is je favoriete soort huisdier?"))
+
+// looping
+procesData()
+	.then((data) => {
+		return data.map(object =>{
+
+		})
+	})
+

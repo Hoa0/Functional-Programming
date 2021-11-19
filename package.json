@@ -2,9 +2,9 @@
   "name": "functional-programming",
   "version": "1.0.0",
   "description": "school project - infromation design: tech track",
-  "main": "server.js",
-  "type":"module",
+  "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/Hoa0/Functional-Programming#readme",
   "dependencies": {
-    "node-fetch": "^3.0.0"
+    "node-fetch": "^3.0.0",
+    "nodemon": "^2.0.14",
+    "require": "^2.4.20"
   }
 }
