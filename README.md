@@ -27,7 +27,7 @@ clone repo
 
 ````bash
  git clone https://github.com/Hoa0/Functional-Programming.git
-```3
+```
 
 Naar project gaan
 
