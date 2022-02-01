@@ -1,4 +1,4 @@
-// get the data
+// get the data sets
 const DATA_SET = require('./tech-track-dataset.json')
 const DATA_SAMPLE = require('./dataset-oefen.json')
 const FETCH_PATH = require('cross-fetch')
