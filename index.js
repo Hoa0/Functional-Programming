@@ -6,7 +6,7 @@ const API = 'https://www.fruityvice.com/api/fruit/all'
 // console.table(DATA_SAMPLE)
 
 /**
- * antwoord van de vraag krijgen
+ * antwoord van de vraag terug krijgen
  * @param {String} vraag
  * @returns
  */
@@ -26,7 +26,7 @@ function getValue (vraag) {
 getValue('Wat wil je worden als je groot bent?')
 
 /**
- * function die checkt of het een string is
+ * functie die checkt of het een string waarde is
  * @param {String} string
  * @returns kleine letters weergeven van de waardes
  */
@@ -39,7 +39,7 @@ const CLEAN_LET_TOLOWER = function cleaningLetters (string) {
 }
 
 /**
-   * function die waarden gelijkwaardig maakt
+   * functie die waarden gelijkwaardig maakt
    * @param {String} baan
    * @returns value 'front-end developer'
  */
@@ -74,7 +74,7 @@ const RM_SYMBOLS = function (string) {
 /**
  * empty space, lege ruimte vervangen naar empty
  * @param {String} string
- * @param {String} replacement
+ * @param {String} replacement, een eigen string waarde invullen
  * @returns "empty"
  */
 const RM_EMPTY = function (string, replacement) {
@@ -82,8 +82,12 @@ const RM_EMPTY = function (string, replacement) {
   return string === '' ? replacement : string
 }
 
+const RM_UNDEF = function (string) {
+  return string === undefined ? 'leeg antwoord' : string
+}
 /**
  * mogelijk voor het manipuleren van data door een nieuwe array
+ * promise wordt asynchroon manier afgehandeld, callback op een later moment terug krijgt op een reactie.
  * @returns dataset
  */
 function maakPromise () {
@@ -96,32 +100,53 @@ function maakPromise () {
 }
 
 /**
+ * hier wordt de promise opgeroepen
  * looping om vervolgens -> data weergeven
  */
 maakPromise()
   .then(
     function (data) {
-      // iedere element van een arrat
+      // iedere element van een array
       return data.map((element) => {
         Object.keys(element).forEach(key => {
           // element[key] = cleanValueJob(cleaningLetters(element[key])),
           element[key] = CLEAN_LET_TOLOWER(element[key])
           element[key] = CLEAN_JOB(element[key])
           element[key] = RM_EMPTY(element[key])
+          element[key] = RM_UNDEF(element[key])
           element[key] = RM_SYMBOLS(element[key])
         })
-        return element
+        return element // array item terug
       })
     }
   )
-/* .then(opgeschoondeData => {
-    console.log(opgeschoondeData)
+
+  /*
+  filteren op vragen
+  voor elk student maak je een object aan met twee property waarvan de opgeschoonde waarde het antwoord is van de vraag.
+  */
+    .then((data) => {
+    return data.map(object => {
+      const student = {
+        huisdier: object['Wat is je favoriete soort huisdier?'],
+        beroep: object['Wat wil je worden als je groot bent?'],
+      }
+      return student
+    })
+  })
+
+  /*vervolgens een nieuwe .then() waar die opgeschoonde data terug stuurt in de console
+   * en vervolgens wanneer die klaar is ongeacht een error of niet stuurt die naar de .finally()
+  * 
+   */
+.then(opgeschoondeData => {
+    console.table(opgeschoondeData)
   })
 .catch((e) => console.error(e))
-.finally(console.log('finished cleaning')) */
+.finally(console.log('finished cleaning'))
 
 /**
- * function naar het url path, met fetch async
+ * functie naar het url path, met fetch async
  * response -> haalt promise op en resolve het
  * @param {String} URL
  * @returns het url path naar de API
@@ -148,7 +173,7 @@ const GET_FRUIT = async function (data) {
     element => {
       Object.keys(element).forEach(key => {
         element[key] = CLEAN_LET_TOLOWER(element[key])
-        element[key] = RM_EMPTY(element[key])
+        element[key] = RM_EMPTY(element[key], 'geen idee')
         element[key] = RM_SYMBOLS(element[key])
       })
       return element
@@ -157,4 +182,4 @@ const GET_FRUIT = async function (data) {
   return x
 }
 
-GET_FRUIT(GET_DATA_FETCH(API))
+//GET_FRUIT(GET_DATA_FETCH(API))

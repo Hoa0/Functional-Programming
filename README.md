@@ -25,15 +25,15 @@ Voor het vak FP heb ik de opdracht gekregen om een datasets op te schonen. Hierv
 
 clone repo
 
-```bash
-git clone https://github.com/Hoa0/Functional-Programming.git
-```
+````bash
+ git clone https://github.com/Hoa0/Functional-Programming.git
+```3
 
 Naar project gaan
 
 ```bash
   cd ../functional-programming
-```
+````
 
 npm installeren
 
