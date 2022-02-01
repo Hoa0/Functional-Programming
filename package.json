@@ -1,7 +1,7 @@
 {
   "name": "functional-programming",
   "version": "1.0.0",
-  "description": "school project - infromation design: tech track",
+  "description": "school project - information design: tech track",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
